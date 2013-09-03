@@ -1,6 +1,13 @@
 <html>
   <body>
     <h1>Go nuts on {{.Url}}</h1>
+    <div>
+      <p>Hits</p>
+      <ul>
+      {{range $url, $count := .Hits}}
+        <li>{{$url}} {{$count}}</li>
+      {{end}}
+      </ul>
     <form action="/reset" method="GET">
       <input type="submit" value="Reset"></input>
     </form>
