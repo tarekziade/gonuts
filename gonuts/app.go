@@ -27,10 +27,7 @@ func renderIndex(w http.ResponseWriter, r *http.Request) {
 
 
 func resetHits(w http.ResponseWriter, r *http.Request) {
-    // can't do that in one operation ?
-    for i := range hits {
-        delete(hits, i)
-    }
+    hits = make(map[string]int)
     http.Redirect(w, r, "/", http.StatusFound)
 }
 
